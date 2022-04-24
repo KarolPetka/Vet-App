@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "LK3GazSaaWdt/SXVYx07X+UobNi9p+ZhCzxBriXIroSpjkdvcWp1xjlyb9GxH9eiPvh9x9WY4G8eY97Co5O94w==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Lenowiec\\Desktop\\Vet-App\\Vet-App\\Vet-App.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
+    "C:\\Users\\Lenowiec\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.2.3\\swashbuckle.aspnetcore.swaggerui.6.2.3.nupkg.sha512"
+  ],
+  "logs": []
+}
