@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Vet_App.Context;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,7 +10,12 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddMvc();
+builder.Services.AddDbContext<AnimalDatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("VetDatabase")));
+
 var app = builder.Build();
+
+app.Services.GetRequiredService<AnimalDatabaseContext>().Database.Migrate();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
