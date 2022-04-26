@@ -21,5 +21,11 @@ namespace Vet_App.Controllers
         {
             return _animalDatabaseContext.Animals;
         }
+
+        [HttpGet("{id}", Name = "ById")]
+        public Animal Get(int id)
+        {
+            return _animalDatabaseContext.Animals.SingleOrDefault(x => x.Id == id);
+        }
     }
 }
