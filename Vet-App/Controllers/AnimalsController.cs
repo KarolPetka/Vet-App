@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Vet_App.Controllers
 {
-    public class AnimalsController
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AnimalsController : ControllerBase
     {
 
     }
