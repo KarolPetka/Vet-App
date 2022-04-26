@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Vet_App.Context;
+using Vet_App.Models;
 
 namespace Vet_App.Controllers
 {
@@ -13,6 +14,12 @@ namespace Vet_App.Controllers
         public AnimalsController(AnimalDatabaseContext animalDatabaseContext)
         {
             _animalDatabaseContext = animalDatabaseContext;
+        }
+
+        [HttpGet]
+        public IEnumerable<Animal> Get()
+        {
+            return _animalDatabaseContext.Animals;
         }
     }
 }
