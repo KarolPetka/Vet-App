@@ -27,5 +27,12 @@ namespace Vet_App.Controllers
         {
             return _animalDatabaseContext.Animals.SingleOrDefault(x => x.Id == id);
         }
+
+        [HttpPost]
+        public void Post([FromBody] Animal animal)
+        {
+            _animalDatabaseContext.Animals.Add(animal);
+            _animalDatabaseContext.SaveChanges();
+        }
     }
 }
