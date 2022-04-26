@@ -34,5 +34,12 @@ namespace Vet_App.Controllers
             _animalDatabaseContext.Animals.Add(animal);
             _animalDatabaseContext.SaveChanges();
         }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Animal animal)
+        {
+            _animalDatabaseContext.Animals.Update(animal);
+            _animalDatabaseContext.SaveChanges();
+        }
     }
 }
