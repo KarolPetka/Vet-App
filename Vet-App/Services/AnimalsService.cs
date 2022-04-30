@@ -27,5 +27,12 @@ namespace Vet_App.Services
             _animalDatabaseContext.Animals.Add(animal);
             _animalDatabaseContext.SaveChanges();
         }
+
+        public void Put(int id, Animal animal)
+        {
+            animal.Id = id;
+            _animalDatabaseContext.Animals.Update(animal);
+            _animalDatabaseContext.SaveChanges();
+        }
     }
 }
