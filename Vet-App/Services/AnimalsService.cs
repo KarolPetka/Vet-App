@@ -1,9 +1,10 @@
 ﻿using Vet_App.Context;
 using Vet_App.Models;
+using Vet_App.Repository;
 
 namespace Vet_App.Services
 {
-    public class AnimalsService
+    public class AnimalsService : IAnimalsController
     {
         private readonly AnimalDatabaseContext _animalDatabaseContext;
 
