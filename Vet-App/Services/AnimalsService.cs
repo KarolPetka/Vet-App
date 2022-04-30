@@ -21,5 +21,11 @@ namespace Vet_App.Services
         {
             return _animalDatabaseContext.Animals.SingleOrDefault(x => x.Id == id);
         }
+
+        public void Post(Animal animal)
+        {
+            _animalDatabaseContext.Animals.Add(animal);
+            _animalDatabaseContext.SaveChanges();
+        }
     }
 }
