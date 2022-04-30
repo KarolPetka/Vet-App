@@ -16,5 +16,10 @@ namespace Vet_App.Services
         {
             return _animalDatabaseContext.Animals;
         }
+
+        public Animal Get(int id)
+        {
+            return _animalDatabaseContext.Animals.SingleOrDefault(x => x.Id == id);
+        }
     }
 }
