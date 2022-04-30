@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Vet_App.Context;
+using Vet_App.Services;
 using Vet_App.Models;
 
 namespace Vet_App.Controllers
@@ -9,48 +9,41 @@ namespace Vet_App.Controllers
     [ApiController]
     public class AnimalsController : ControllerBase
     {
-        private readonly AnimalDatabaseContext _animalDatabaseContext;
+        private readonly AnimalsService _animalsService;
 
-        public AnimalsController(AnimalDatabaseContext animalDatabaseContext)
+        public AnimalsController(AnimalsService animalServices)
         {
-            _animalDatabaseContext = animalDatabaseContext;
+            _animalsService = animalServices;
         }
 
         [HttpGet]
         public IEnumerable<Animal> Get()
         {
-            return _animalDatabaseContext.Animals;
+            return _animalsService.Get();
         }
 
         [HttpGet("{id}", Name = "ById")]
         public Animal Get(int id)
         {
-            return _animalDatabaseContext.Animals.SingleOrDefault(x => x.Id == id);
+            return _animalsService.Get(id);
         }
 
         [HttpPost]
         public void Post([FromBody] Animal animal)
         {
-            _animalDatabaseContext.Animals.Add(animal);
-            _animalDatabaseContext.SaveChanges();
+            _animalsService.Post(animal);
         }
 
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Animal animal)
         {
-            _animalDatabaseContext.Animals.Update(animal);
-            _animalDatabaseContext.SaveChanges();
+            _animalsService.Put(id, animal);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            var animal = _animalDatabaseContext.Animals.FirstOrDefault(x => x.Id == id);
-            if (animal != null)
-            {
-                _animalDatabaseContext.Animals.Remove(animal);
-                _animalDatabaseContext.SaveChanges();
-            }
+            _animalsService.Delete(id);
         }
     }
 }

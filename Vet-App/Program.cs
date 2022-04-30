@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Vet_App.Context;
+using Vet_App.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,9 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMvc();
 builder.Services.AddDbContext<AnimalDatabaseContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("VetDatabase")));
 
-var app = builder.Build();
+builder.Services.AddScoped<AnimalsService>();
 
+var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 
  scope.ServiceProvider.GetRequiredService<AnimalDatabaseContext>().Database.Migrate();
