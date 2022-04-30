@@ -31,17 +31,21 @@ namespace Vet_App.Services
 
         public void Put(int id, Animal animal)
         {
-            animal.Id = id;
-            _animalDatabaseContext.Animals.Update(animal);
-            _animalDatabaseContext.SaveChanges();
+            var animalToUpdate = _animalDatabaseContext.Animals.FirstOrDefault(x => x.Id == id);
+            if (animalToUpdate != null)
+            {
+                animal.Id = id;
+                _animalDatabaseContext.Animals.Update(animal);
+                _animalDatabaseContext.SaveChanges();
+            }
         }
 
         public void Delete(int id)
         {
-            var animal = _animalDatabaseContext.Animals.FirstOrDefault(x => x.Id == id);
-            if (animal != null)
+            var animalToDelete = _animalDatabaseContext.Animals.FirstOrDefault(x => x.Id == id);
+            if (animalToDelete != null)
             {
-                _animalDatabaseContext.Animals.Remove(animal);
+                _animalDatabaseContext.Animals.Remove(animalToDelete);
                 _animalDatabaseContext.SaveChanges();
             }
         }
