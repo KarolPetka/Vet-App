@@ -34,5 +34,15 @@ namespace Vet_App.Services
             _animalDatabaseContext.Animals.Update(animal);
             _animalDatabaseContext.SaveChanges();
         }
+
+        public void Delete(int id)
+        {
+            var animal = _animalDatabaseContext.Animals.FirstOrDefault(x => x.Id == id);
+            if (animal != null)
+            {
+                _animalDatabaseContext.Animals.Remove(animal);
+                _animalDatabaseContext.SaveChanges();
+            }
+        }
     }
 }
