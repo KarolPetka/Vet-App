@@ -15,6 +15,9 @@ builder.Services.AddDbContext<AnimalDatabaseContext>(options => options.UseSqlSe
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+
+ scope.ServiceProvider.GetRequiredService<AnimalDatabaseContext>().Database.Migrate();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
